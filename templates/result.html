@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            background: url('/static/bg.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .bar-fill {
+            height: 20px;
+            width: {{ confidence }}%;
+            background-color: #4caf50;
+            text-align: right;
+            line-height: 20px;
+            padding-right: 10px;
+            font-size: 0.9em;
+            color: white;
+            transition: width 1s ease;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: white;
+            color: #5c258d;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        a:hover {
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎤 Predicted Speaker: {{ speaker }}</h1>
+        <p>Prediction Confidence</p>
+        <div class="bar">
+            <div class="bar-fill">{{ confidence }}%</div>
+        </div>
+        <a href="/">🔁 Try Another</a>
+    </div>
+</body>
+</html>

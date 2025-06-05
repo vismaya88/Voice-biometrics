@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voice Biometrics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            height: 100vh;
+            background: url('/static/bg.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .file-input-wrapper {
+            background-color: white;
+            color: #333;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            background-color: #ffffff;
+            color: #5c258d;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s ease;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #eeeeee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🔊</div>
+        <h1>Voice Biometrics</h1>
+        <p>Upload your audio file to identify the speaker</p>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <div class="file-input-wrapper">
+                <input type="file" name="audio" accept=".flac" required>
+            </div>
+            <input type="submit" value="Predict Speaker">
+        </form>
+    </div>
+</body>
+</html>
